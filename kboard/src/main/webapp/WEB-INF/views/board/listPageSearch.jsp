@@ -76,9 +76,12 @@
 				<c:if test="${searchType eq 'title_content'}">selected</c:if>>제목+내용</option>
 			<option value="writer"
 				<c:if test="${searchType eq 'writer'}">selected</c:if>>작성자</option>
-		</select> <input type="text" name="keyword" value="${page.keyword}" />
+		</select> 
+		
+		<input type="text" name="keyword" value="${keyword}" />
 
 		<button type="button" id="searchBtn">검색</button>
+	</div>
 
 		<script>
 			document.getElementById("searchBtn").onclick = function() {
@@ -93,7 +96,6 @@
 				console.log(keyword)
 			};
 		</script>
-	</div>
 
 </body>
 </html>
