@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>insert title here</title>
+<link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+<title>게시판</title>
 </head>
 <body>
 
@@ -14,8 +14,7 @@
 		<%@ include file="../include/nav.jsp"%>
 	</div>
 
-
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
 				<th>번호</th>
