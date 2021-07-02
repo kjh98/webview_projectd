@@ -1,6 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +37,7 @@
 
 
 <ul>
-    <li>
+    <!--  <li>
         <div>
             <p>첫번째 댓글 작성자</p>
             <p>첫번째 댓글</p>
@@ -53,8 +55,18 @@
             <p>세번째 댓글</p>
         </div>
     </li>
-</ul>
+</ul>	-->
 
+	<c:forEach items="${reply}" var="reply">
+	<li>
+	    <div>
+	        <p>${reply.writer} / <fmt:formatDate value="${reply.regDate}" pattern="yyyy-MM-dd" /></p>
+	        <p>${reply.content }</p>
+	    </div>
+	</li>    
+	</c:forEach>
+
+	
 
 <div>
     <p>
