@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/resources/css/style.css">
 <title>게시판</title>
 </head>
 <body>
@@ -13,10 +12,12 @@
 		<%@ include file="../include/nav.jsp"%>
 	</div>
 
+	
+
 
 	<table>
 		<thead>
-			<tr>
+			<tr class="tr">
 				<th>번호</th>
 				<th>제목</th>
 				<th>작성일</th>
