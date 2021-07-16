@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.board.mappers.member">
+
+	<!-- 로그인 -->
+	<select id="login" resultType="com.board.domain.MemberVO">
+		SELECT USERID, USERPASS
+		FROM
+		TBL_MEMBER
+		WHERE USERID = #{userId}
+		AND USERPASS = #{userPass}
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="SignUp">
+		insert into
+		tbl_member(userid, userpass, username,
+		userphon, useraddr1)
+		values(#{userId}, #{userPass}, #{userName},
+		#{userPhon}, #{useraddr1})
+	</insert>
+
+	<!-- 회원탈퇴 -->
+	<delete id="delete" parameterType="int">
+		delete
+		from tbl_member
+		WHERE USERID = #{userId}
+		AND USERPASS = #{userPass}
+	</delete>
+
+
+</mapper>

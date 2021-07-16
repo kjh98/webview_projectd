@@ -24,8 +24,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 
 	// 댓글 작성
 	@Override
-	public void write(ReplyVO vo) throws Exception {
-	    sql.insert(namespace + ".replyWrite", vo);
+	public String write(ReplyVO vo) throws Exception {
+		sql.insert(namespace + ".replyWrite", vo);
+		return null;
 	}
 
 	// 댓글 수정

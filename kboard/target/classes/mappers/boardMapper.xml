@@ -8,7 +8,7 @@
 	<!-- 게시물 목록 -->
 	<select id="list" resultType="com.board.domain.BoardVO">
 		SELECT
-		bno, title, content, writer, regDate, viewCnt
+		row_number() over() as bno, title, content, writer, regdate, viewCnt from tbl_board;
 		FROM tbl_board;
 	</select>
 
@@ -64,7 +64,7 @@
 	<!-- 게시물 목록 + 페이징 + 검색 -->
 	<select id="listPageSearch" parameterType="hashMap" resultType="com.board.domain.BoardVO">
 	 select
-	  bno, title, writer, regDate, viewCnt
+	  row_number() over() as rownum, bno, title, writer, regDate, viewCnt
 	 from tbl_board
 	 
 	 <if test='searchType.equals("title")'>

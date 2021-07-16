@@ -23,21 +23,27 @@ public class MemberController {
 	
 	// 회원가입 get
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String getRegister() throws Exception {
+	public void getRegister() throws Exception {
 		
-		return "redirect:/member/signup";
 		
 	}
 	
 	// 회원가입 post
-	@RequestMapping(value = "/SignUp", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String postRegister(MemberVO vo) throws Exception {
 		
 		service.SignUp(vo);
 		
-		return null;
+		return "redirect:/member/login";
 	}
 	
+	//로그인 get
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public void getLogin() throws Exception {
+		
+	}
+	
+	//로그인 post
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		
@@ -47,11 +53,12 @@ public class MemberController {
 		if(login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
+			return "redirect:/member/login";
 		}else {
 			session.setAttribute("member", login);
+			return "redirect:/board/listPageSearch?num=1";
 		}
 		
-		return "redirect:/board/listPageSearch?num=1";
 	}
 	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -59,7 +66,7 @@ public class MemberController {
 		
 		session.invalidate();
 		
-		return "redirect:/";
+		return "redirect:/board/listPageSearch?num=1";
 	}
 
 }

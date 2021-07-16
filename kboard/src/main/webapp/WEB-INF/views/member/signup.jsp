@@ -16,7 +16,7 @@
 			// 취소
 			$(".cencle").on("click", function(){
 				
-				location.href = "/login";
+				location.href = "/board/listPageSearch?num=1";
 						    
 			})
 		
@@ -36,6 +36,16 @@
 					$("#userName").focus();
 					return false;
 				}
+				if($("#userPhon").val()==""){
+					alert("전화번호를 입력해주세요.");
+					$("#userPhon").focus();
+					return false;
+				}
+				if($("#useraddr1").val()==""){
+					alert("주소를 입력해주세요.");
+					$("#useraddr1").focus();
+					return false;
+				}
 			});
 			
 				
@@ -44,7 +54,7 @@
 	</script>
 	<body>
 		<section id="container">
-			<form action="/member/SignUp" method="post">
+			<form action="/member/signup" method="post">
 				<div class="form-group has-feedback">
 					<label class="control-label" for="userId">아이디</label>
 					<input class="form-control" type="text" id="userId" name="userId" />
@@ -56,6 +66,14 @@
 				<div class="form-group has-feedback">
 					<label class="control-label" for="userName">성명</label>
 					<input class="form-control" type="text" id="userName" name="userName" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="userPhon">휴대폰 번호</label>
+					<input class="form-control" type="text" id="userPhon" name="userPhon" />
+				</div>
+				<div class="form-group has-feedback">
+					<label class="control-label" for="useraddr1">주소</label>
+					<input class="form-control" type="text" id="useraddr1" name="useraddr1" />
 				</div>
 				<div class="form-group has-feedback">
 					<button class="btn btn-success" type="submit" id="submit">회원가입</button>
