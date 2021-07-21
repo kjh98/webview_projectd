@@ -18,4 +18,8 @@ public interface ReplyService {
 
 	// 댓글 삭제
 	public void delete(ReplyVO vo) throws Exception;
+	
+	// 게시글과 댓글 삭제
+	public void replyDelete(ReplyVO vo) throws Exception;
+	
 }

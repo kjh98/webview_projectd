@@ -72,4 +72,10 @@ public class BoardServiceImpl implements BoardService {
 	 return dao.searchCount(searchType, keyword);
 	}
 
+	@Override
+	public void insertBoard(BoardVO vo) throws Exception {
+		dao.insertBoard(vo);
+		
+	}
+
 }

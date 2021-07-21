@@ -33,4 +33,6 @@ public interface BoardDAO {
 	 
 	// 게시물 총 갯수 + 검색 적용
 	 public int searchCount(String searchType, String keyword) throws Exception;
+
+	public void insertBoard(BoardVO vo) throws Exception;
 }

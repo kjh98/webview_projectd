@@ -40,4 +40,10 @@ public class ReplyDAOImpl implements ReplyDAO{
 	public void delete(ReplyVO vo) throws Exception {
 	    sql.delete(namespace + ".replyDelete", vo);
 	}
+	// 게시글 관련 댓글 전부 삭제
+		@Override
+	public void replyDelete(ReplyVO vo) throws Exception {
+	    sql.delete(namespace + ".replyAllDelete", vo);
+	}
+	
 }

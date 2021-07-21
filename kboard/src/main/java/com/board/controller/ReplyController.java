@@ -30,5 +30,13 @@ public class ReplyController {
 	//	댓글 수정
 		
 	//	댓글 삭제
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String posttDel(ReplyVO vo) throws Exception {
+	    
+	    replyService.delete(vo);
+	    
+	    return "redirect:/board/view?bno=" + vo.getBno();
+	}
 	
+
 }

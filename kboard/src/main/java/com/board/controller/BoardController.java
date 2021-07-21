@@ -1,15 +1,20 @@
 package com.board.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
-
+import java.util.UUID;
 
 import javax.inject.Inject;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.board.domain.BoardVO;
 import com.board.domain.Page;
@@ -41,7 +46,7 @@ public class BoardController {
 	}
 
 //게시물 작성
-	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	@PostMapping("/write")
 	public String postWrite(BoardVO vo) throws Exception {
 		service.write(vo);
 
@@ -59,6 +64,8 @@ public class BoardController {
 		List<ReplyVO> reply = null;
 		reply = replyService.list(bno);
 		model.addAttribute("reply", reply);
+		model.addAttribute("replyVO", new ReplyVO());
+
 	}
 	
 
@@ -81,13 +88,18 @@ public class BoardController {
 		return "redirect:/board/view?bno=" + vo.getBno();
 	}
 
-	// 게시물 삭제
+	// 게시물 삭제 + 해당 bno 번호 댓글 전부 삭제
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String getDelete(@RequestParam("bno") int bno) throws Exception {
-
+	public String getDelete(@RequestParam("vbno") int bno, ReplyVO vo) throws Exception {
+		replyService.replyDelete(vo);
 		service.delete(bno);
-
-		return "redirect:/board/list";
+		return "redirect:/board/listPageSearch?num=1";
+	}
+	// 게시물 삭제 
+	@RequestMapping(value = "/ndelete", method = RequestMethod.GET)
+	public String getnDelete(@RequestParam("vbno") int bno) throws Exception {
+		service.delete(bno);
+		return "redirect:/board/listPageSearch?num=1";
 	}
 
 	// 게시물 목록 + 페이징 추가
@@ -146,5 +158,28 @@ public class BoardController {
 		 model.addAttribute("keyword", keyword);
 	 
 	}
+	// 글 쓰기
+		@RequestMapping(value="/insertBoard.do") 
+		public String insertBoard(BoardVO vo) throws IOException { 
+				// 파일 업로드 처리
+				String fileName=null;
+				MultipartFile uploadFile = vo.getUploadFile();
+				if (!uploadFile.isEmpty()) {
+					String originalFileName = uploadFile.getOriginalFilename();
+					String ext = FilenameUtils.getExtension(originalFileName);	//확장자 구하기
+					UUID uuid = UUID.randomUUID();	//UUID 구하기
+					fileName=uuid+"."+ext;
+					uploadFile.transferTo(new File("D:\\upload" + fileName));
+					vo.setUfile_name(originalFileName);
+				}
+				
+				vo.setFileName(fileName);
+				try {
+					service.insertBoard(vo);
+				} catch (Exception e) {
+					e.printStackTrace();
+				} 
+				return "redirect:/board/listPageSearch?num=1";
+		}
 	
 }

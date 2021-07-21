@@ -44,6 +44,7 @@
 				<c:if test="${msg == false}">
 					<p style="color: red;">로그인 실패! 아이디와 비밀번호를 확인 해 주세요!</p>
 				</c:if>
+			
 	</div>
 </body>
 

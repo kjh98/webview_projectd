@@ -7,10 +7,9 @@
 <title>Home</title>
 </head>
 <body>
-
 <jsp:forward page="/board/listPageSearch?num=1"></jsp:forward>
 
-	
+
 
 </body>
 </html>

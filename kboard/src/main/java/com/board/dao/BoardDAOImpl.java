@@ -92,4 +92,9 @@ public class BoardDAOImpl implements BoardDAO {
 	  return sql.selectOne(namespace + ".searchCount", data); 
 	 }
 
+	@Override
+	public void insertBoard(BoardVO vo) throws Exception {
+		sql.insert(namespace + ".insertBoard", vo); 
+	}
+
 }

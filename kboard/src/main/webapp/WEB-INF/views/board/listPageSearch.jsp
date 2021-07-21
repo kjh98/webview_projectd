@@ -11,10 +11,7 @@
 	<div id="nav">
 		<%@ include file="../include/nav.jsp"%>
 	</div>
-
-	
-
-
+<div class="inner_index" style="height:auto !important;">
 	<table>
 		<thead>
 			<tr class="tr">
@@ -27,20 +24,23 @@
 		</thead>
 
 		<tbody>
-
-			<c:forEach items="${list}" var="list">
-				<tr>
-					<td>${list.bno}</td>
-					<td><a href="/board/view?bno=${list.bno}"> ${list.title} </a>
-					</td>
-					<td><fmt:formatDate value="${list.regDate}"
-							pattern="yyyy-MM-dd" /></td>
-					<td>${list.writer}</td>
-					<td>${list.viewCnt}</td>
-				</tr>
-			</c:forEach>
+		<c:choose>
+			<c:when test="${empty list}" >
+				<tr><td colspan="10" align="center">게시물이 없습니다.</td></tr>
+			</c:when> 
+			<c:when test="${!empty list}">
+				<c:forEach items="${list}" var="list">
+					<tr>
+						<td>${list.rownum}</td>
+						<td><a href="/board/view?bno=${list.bno}"> ${list.title} </a></td>
+						<td><fmt:formatDate value="${list.regDate}" pattern="yy-MM-dd" /></td>
+						<td>${list.writer}</td>
+						<td>${list.viewCnt}</td>
+					</tr>
+				</c:forEach>
+			</c:when>
+		</c:choose>
 		</tbody>
-
 	</table>
 	<div class="paging">
 		<c:if test="${page.prev}">
@@ -50,8 +50,7 @@
 			</span>
 		</c:if>
 
-		<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}"
-			var="num">
+		<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
 			<span> <c:if test="${select != num}">
 					<a href="/board/listPageSearch?num=${num}${page.searchTypeKeyword}">${num}</a>
 				</c:if> <c:if test="${select == num}">
@@ -62,12 +61,10 @@
 		</c:forEach>
 
 		<c:if test="${page.next}">
-			<span>[ <a
-				href="/board/listPageSearch?num=${page.endPageNum + 1}${page.searchTypeKeyword}">다음</a>
-				]
+			<span> <a href="/board/listPageSearch?num=${page.endPageNum + 1}${page.searchTypeKeyword}">다음</a>
+				
 			</span>
 		</c:if>
-
 		<div>
 			<select name="searchType">
 				<option value="title"
@@ -83,6 +80,12 @@
 			<button type="button" id="searchBtn">검색</button>
 		</div>
 	</div>
+
+
+	<div id="footer">
+		<%@ include file="../include/footer.jsp"%>
+	</div>
+</div> <!-- inner index </div>-->	
 	<script>
 		document.getElementById("searchBtn").onclick = function() {
 
@@ -96,10 +99,5 @@
 			console.log(keyword)
 		};
 	</script>
-
-	<div id="footer">
-		<%@ include file="../include/footer.jsp"%>
-	</div>
-
 </body>
 </html>

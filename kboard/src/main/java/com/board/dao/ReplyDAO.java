@@ -16,4 +16,6 @@ public interface ReplyDAO {
 
 	// 댓글 삭제
 	public void delete(ReplyVO vo) throws Exception;
+	// 게시글 관련 댓글 전부 삭제
+	public void replyDelete(ReplyVO vo) throws Exception;
 }

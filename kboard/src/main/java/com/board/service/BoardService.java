@@ -2,6 +2,9 @@ package com.board.service;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import com.board.dao.BoardDAO;
 import com.board.domain.BoardVO;
 
 public interface BoardService {
@@ -34,4 +37,8 @@ public interface BoardService {
 	
 	// 게시물 총 갯수 + 검색 적용
 	public int searchCount(String searchType, String keyword) throws Exception;
+
+	public void insertBoard(BoardVO vo) throws Exception;
+	
+	
 }

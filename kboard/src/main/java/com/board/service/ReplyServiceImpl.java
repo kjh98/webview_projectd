@@ -37,4 +37,9 @@ public class ReplyServiceImpl implements ReplyService {
 	    dao.delete(vo);
 	}
 
+	@Override
+	public void replyDelete(ReplyVO vo) throws Exception {
+		dao.replyDelete(vo);
+	}
+
 }

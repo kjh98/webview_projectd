@@ -2,6 +2,8 @@ package com.board.domain;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
 /*
  create table tbl_board(
@@ -15,13 +17,48 @@ public class BoardVO {
  ); 
  */
 	private int bno;
+	private int rownum;
 	private String title;
 	private String content;
 	private String writer;
 	private Date regDate;
 	private int viewCnt;
+	private String ufile_name;
+	private String file_name;
+	private String fileName;
+	private MultipartFile uploadFile;
 	
-	
+
+	public String getUfile_name() {
+		return ufile_name;
+	}
+	public void setUfile_name(String ufile_name) {
+		this.ufile_name = ufile_name;
+	}
+	public String getFile_name() {
+		return file_name;
+	}
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	public int getBno() {
 		return bno;
 	}

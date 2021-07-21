@@ -10,3 +10,9 @@
 .button {
 	text-align: center;
 }
+.inner_index {
+	position: relative;
+	max-width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
