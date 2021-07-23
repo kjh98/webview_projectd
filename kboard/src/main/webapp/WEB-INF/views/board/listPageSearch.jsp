@@ -12,36 +12,39 @@
 		<%@ include file="../include/nav.jsp"%>
 	</div>
 <div class="inner_index" style="height:auto !important;">
-	<table>
-		<thead>
-			<tr class="tr">
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성일</th>
-				<th>작성자</th>
-				<th>조회수</th>
-			</tr>
-		</thead>
-
-		<tbody>
-		<c:choose>
-			<c:when test="${empty list}" >
-				<tr><td colspan="10" align="center">게시물이 없습니다.</td></tr>
-			</c:when> 
-			<c:when test="${!empty list}">
-				<c:forEach items="${list}" var="list">
-					<tr>
-						<td>${list.rownum}</td>
-						<td><a href="/board/view?bno=${list.bno}"> ${list.title} </a></td>
-						<td><fmt:formatDate value="${list.regDate}" pattern="yy-MM-dd" /></td>
-						<td>${list.writer}</td>
-						<td>${list.viewCnt}</td>
+	<div class="container">	
+		<div class="table-responsive">
+			<table class="table table-striped table-sm">
+				<thead>
+					<tr class="tr">
+						<th>번호</th>
+						<th>제목</th>
+						<th>작성일</th>
+						<th>작성자</th>
+						<th>조회수</th>
 					</tr>
-				</c:forEach>
-			</c:when>
-		</c:choose>
-		</tbody>
-	</table>
+				</thead>
+				<tbody>
+				<c:choose>
+					<c:when test="${empty list}" >
+						<tr><td colspan="10" align="center">게시물이 없습니다.</td></tr>
+					</c:when> 
+					<c:when test="${!empty list}">
+						<c:forEach items="${list}" var="list">
+							<tr>
+								<td>${list.rownum}</td>
+								<td><a href="/board/view?bno=${list.bno}"><c:out value="${list.title}"/>  </a></td>
+								<td><fmt:formatDate value="${list.regDate}" pattern="yy-MM-dd" /></td>
+								<td><c:out value="${list.writer}"/></td>
+								<td>${list.viewCnt}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+				</c:choose>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	<div class="paging">
 		<c:if test="${page.prev}">
 			<span>[ <a

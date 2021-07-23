@@ -4,11 +4,15 @@
 
 <link rel="stylesheet" type="text/css" href="/resources/css/nav.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/view.css">
+<link rel="stylesheet" 
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+ integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+ crossorigin="anonymous">
 
-<h1 class="h1">게시판</h1>
+<h1>게시판</h1>
 <div class="h_list">
-	<h3>게시판</h3>
-	<ul class="nav">
+	<h3 style="text-align:center;">게시판</h3>
+	<ul class="nav1">
 		<li>
 			<c:if test="${member != null}">
 				<p>${member.userName}님 안녕하세요.</p>
@@ -29,3 +33,4 @@
 
 	</ul>
 </div>
+

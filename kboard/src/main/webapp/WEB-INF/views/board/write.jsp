@@ -35,29 +35,22 @@
 			</c:choose>
 
 		</div> 
-	</form>-->
+	</form> -->
 	
 	<form action="insertBoard.do" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
-		<div class="form">
-			<label>작성자</label> ${member.userName} <input type="hidden"
-				name="writer" value="${member.userName}" />
-			<hr />
-			<label>제목</label> <input type="text" name="title" />
-			<hr />
-			<label>내용</label>
-			<textarea cols="50" rows="5" name="content"></textarea>
-			<br />
+		<div class="container" role="main">
+			<label>작성자: </label> ${member.userName} <input type="hidden" name="writer"  value="${member.userName}" />
+			<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해 주세요"><br/>
+			 <textarea cols="50" rows="5" name="content" class="form-control" placeholder="내용을 입력해 주세요"></textarea>
 			<c:choose>
 				<c:when test="${member != null}">
-					<input type="file" name="uploadFile"/></td>
-					<button type="submit">작성</button>
+					<input type="file" name="uploadFile" />
+					<button type="submit" id="rdbtn">작성</button>
 				</c:when>
-
 				<c:otherwise>
 					<p>로그인 후 작성 가능 합니다.</p>
 				</c:otherwise>
 			</c:choose>
-
 		</div>
 	</form>
 </body>

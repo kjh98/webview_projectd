@@ -5,7 +5,6 @@
 
 .reply {
 	list-style: none;
-	text-align: center;
 }
 .button {
 	text-align: center;
@@ -16,3 +15,66 @@
 	margin: 0 auto;
 	overflow: hidden;
 }
+#rdbtn{
+    cursor: pointer;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.board_title {
+
+	font-weight : 700;
+
+	font-size : 22pt;
+
+	margin : 10pt;
+
+}
+
+.board_info_box {
+
+	color : #6B6B6B;
+
+	margin : 10pt;
+
+}
+
+.board_author {
+
+	font-size : 10pt;
+
+	margin-right : 10pt;
+
+}
+
+.board_date {
+
+	font-size : 10pt;
+
+}
+
+.board_content {
+
+	color : #444343;
+
+	font-size : 12pt;
+
+	margin : 10pt;
+
+}
+
+.board_tag {
+	
+	font-size : 11pt;
+
+	margin : 10pt;
+
+	padding-bottom : 10pt;
+	
+}
+

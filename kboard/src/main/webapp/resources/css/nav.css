@@ -11,19 +11,6 @@ body {
 	text-align: center;
 }
 
-table {
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	width: 70%;
-	min-height:500px;
-}
-
-table>tbody>tr>td>a {
-	text-decoration: none;
-	color: inherit;
-	color: black;
-}
 
 table>tbody>tr>td>a:hover {
 	background-color: powderblue;
@@ -55,29 +42,21 @@ h1 {
 	z-index: 1000;
 }
 
-h3 {
-	text-align: center;
-}
 
-.nav>li {
+
+.nav1 > li {
 	list-style: none;
 }
 
-.nav>li>a {
+.nav1>li>a {
 	text-decoration: none;
 	color: inherit;
 	color: #9fb0c9;
 }
 
-.nav>li>a:hover {
+.nav1>li>a:hover {
 	text-decoration: underline;
 	background-color: powderblue;
 	transition: background-color .5s;
 }
 
-.tr {
-	background-color: #FCF2CE;
-}
-td{
-	height: 100px;
-}
