@@ -19,7 +19,7 @@
 					<label for="userId"></label> <input type="text" id="userId"
 						name="userId" placeholder="아이디">
 				</div>
-				<hr>
+				<hr> 
 				<div>
 					<label for="userPass"></label> <input type="password" id="userPass"
 						name="userPass" placeholder="비밀번호">
