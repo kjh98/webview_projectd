@@ -9,6 +9,9 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
  crossorigin="anonymous">
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+ 
 <h1>게시판</h1>
 <div class="h_list">
 	<h3 style="text-align:center;">게시판</h3>
@@ -30,6 +33,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
 		<c:if test="${member != null}">
 			<li><a href="/board/write">글 작성</a></li>
 		</c:if>
+		<li><a href="#">달력</a></li>
 
 	</ul>
 </div>

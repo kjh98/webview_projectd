@@ -8,7 +8,7 @@
 </head>
 <body>
 <jsp:forward page="/board/listPageSearch?num=1"></jsp:forward>
-
+ㅁㄴㅇ
 
 
 </body>
