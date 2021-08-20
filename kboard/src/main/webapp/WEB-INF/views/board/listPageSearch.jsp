@@ -134,7 +134,7 @@
 		    var NowMonth = new Date(nowDate.getFullYear(), nowDate.getMonth()+1, nowDate.getDate());
 		    var thisMonth = new Date(nowDate.getFullYear(), nowDate.getMonth(), 1);
 		    var thisLastDay = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, 0);
-		    console.log("this"+thisMonth.getDay());
+// 		    console.log("this"+thisMonth.getDay());
 
 		    var tag = "<tr>";
 		    var cnt = 0;
@@ -147,14 +147,18 @@
 
 		    //날짜 채우기
 		    for (i = 1; i <= thisLastDay.getDate(); i++) {
-		    	console.log('thisLastDay.getDate()' + NowMonth.getDate());
-		    	console.log('i' + i);
+// 		    	console.log('thisLastDay.getDate()' + NowMonth.getDate());
+// 		    	console.log('i' + i);
 		        if (cnt % 7 == 0) { tag += "<tr>"; }
-		        console.log("year:"+ year +" " +"month:" +month +" " +"i:"+ i +" "+"NowMonth.getDate():"+NowMonth.getDate() )
-			        if(i == NowMonth.getDate()){
-			        	
-			        	
-			        	tag += "<td class='currentdate'>" + NowMonth.getDate(); + "</td>";
+// 		        console.log("year:"+ year +" " +"month:" +month +" " +"i:"+ i +" "+"NowMonth.getDate():"+NowMonth.getDate() )
+		        var nowmd = new Date();
+		        var nowmt = nowmd.getMonth() + 1;
+		        var dayday = nowmd.getFullYear()+"-"+ nowmt +"-"+ nowmd.getDate();
+		        var nday = year+"-"+month+"-"+ i
+// 		        console.log("dayday: "+ dayday);
+// 		        console.log("nday: "+nday);
+			        if(dayday == nday){
+			        	tag += "<td class='currentdate'>" + i + "</td>";
 		        	}else{
 				        tag += "<td>" + i + "</td>";
 	        		}
