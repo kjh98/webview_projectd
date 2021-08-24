@@ -4,6 +4,7 @@
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,10 @@
 </head>
 <body>
 	<div id="nav"> <%@ include file="../include/nav.jsp"%></div>
+	<%
+		pageContext.setAttribute("br", "<br/>");
+		pageContext.setAttribute("cn", "\n");
+	%>
 <div class="inner_index" style="height:auto !important;">
 
 	<div class="container" role="main">
@@ -34,16 +39,13 @@
 		</div>
 	</div>
 	<c:if test="${member.userName == view.writer}">
-		<div class="button">
-			<a href="/board/modify?bno=${view.bno}">게시물 수정</a>
+			<button class="btn btn-sm btn-primary board_button_modify" onclick = "location.href='/board/modify?bno=${view.bno}'">게시물 수정</button>
 			<form action="ndelete" method="get" id="vdelete">
 				<input type="hidden" name="vbno" value="${view.bno}">
 				<input type="hidden" name="bno" value="${reply[0].bno}">
-				<button type="submit" onclick="dbtn()">게시물 삭제</button>
+				<button type="submit" onclick="dbtn()" class="btn btn-sm btn-primary board_button_modify">게시물 삭제</button>
 			</form>
-		</div>
 	</c:if>
-	<hr/>
 		<div class="reply">
 			<form id="reply" method="post" action="/reply/write">
 				<p>
@@ -100,7 +102,7 @@
 							</span>
 						</span>
 						<c:out value="${reply.content}" />
-
+						${fn:replace(reply.content, cn, br)}
 					</p>
 					<c:if test="${member.userName == reply.writer}">
 						<form id="reply" method="post" action="/reply/delete">

@@ -23,7 +23,7 @@
     border-radius: .2rem;
     color: #fff;
     background-color: #007bff;
-    border-color: #007bff;
+    border: 0;
 }
 
 .board_title {
@@ -76,6 +76,22 @@
 
 	padding-bottom : 10pt;
 	
+}
+#searchBtn{
+    color: #fff;
+    background-color: #007bff;
+    border: 0;
+    font-size: 19px;
+}
+.board_button_modify{
+    float: right;
+}
+.board_button_del{
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    float: right;
+
 }
 
 

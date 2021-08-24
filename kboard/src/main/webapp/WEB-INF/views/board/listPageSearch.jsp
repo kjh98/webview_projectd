@@ -13,7 +13,7 @@
 	</div>
 	<div class="time"></div>
 	<div class="calendar"></div>
-	
+
 <div class="inner_index" style="height:auto !important;">
 	<div class="container">	
 		<div class="table-responsive">
@@ -83,7 +83,7 @@
 					<c:if test="${searchType eq 'writer'}">selected</c:if>>작성자</option>
 			</select> <input type="text" name="keyword" value="${keyword}" />
 
-			<button type="button" id="searchBtn">검색</button>
+			<button type="button" id="searchBtn" >검색</button>
 		</div>
 	</div>
 	<div id="footer">
