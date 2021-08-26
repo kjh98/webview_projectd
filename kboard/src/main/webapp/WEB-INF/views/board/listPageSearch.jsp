@@ -91,6 +91,8 @@
 	</div>
 </div> <!-- inner index </div>-->	
 	<div id="calendarForm"></div>
+	<div id="time" class="time"></div>
+	<div id="date" class="date"></div>
 	<script>
 		document.getElementById("searchBtn").onclick = function() {
 
@@ -106,9 +108,15 @@
 		
 		
 		$("#calendarForm").hide();
+		$("#date").hide();
+		$("#time").hide();
+
+
 		$(".nav1 li:nth-of-type(5)").click(function() {
 			$(".inner_index").css("display","none");
 			$("#calendarForm").show();
+			$("#date").show();
+			$("#time").show();
 		});
 		
 		
@@ -214,6 +222,31 @@
 		            $(this).removeClass("select_day").addClass("select_day");
 		        });
 		    }
+		}
+
+
+
+		function setClock(){
+			var timer_dateInfo = new Date();
+			var timer_hour = modifyNumber(timer_dateInfo.getHours());
+			var timer_min = modifyNumber(timer_dateInfo.getMinutes());
+			var timer_sec = modifyNumber(timer_dateInfo.getSeconds());
+			var timer_year = timer_dateInfo.getFullYear();
+			var timer_month = timer_dateInfo.getMonth()+1; //monthIndex를 반환해주기 때문에 1을 더해준다.
+			var timer_date = timer_dateInfo.getDate();
+			document.getElementById("time").innerHTML = timer_hour + ":" + timer_min  + ":" + timer_sec;
+			document.getElementById("date").innerHTML = timer_year + "년 " + timer_month + "월 " + timer_date + "일";
+		}
+		function modifyNumber(time){
+			if(parseInt(time)<10){
+				return "0"+ time;
+			}
+			else
+				return time;
+		}
+		window.onload = function(){
+			setClock();
+			setInterval(setClock,1000); //1초마다 setClock 함수 실행
 		}
 	</script>
 </body>

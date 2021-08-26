@@ -93,7 +93,27 @@
     float: right;
 
 }
+/*.h_list > .nav1 > li {
+    text-align: right;
+}*/
 
+.date{
+    font-family:'Lucida Sans';
+    text-align: center;
+    position: relative;
+    top: 50px;
+    font-size: 45px;
+    color: cornflowerblue;  /* 흰색 */
+}
+.time{
+    font-family:'Lucida Sans';
+    text-align: center;
+    position: relative;
+    top: 50px;
+    font-size: 100px;
+    font-weight: bold;
+    color: rgb(179, 21, 171);  /*보라색 */
+}
 
 
 

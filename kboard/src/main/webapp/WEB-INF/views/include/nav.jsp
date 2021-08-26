@@ -33,7 +33,7 @@
         <c:if test="${member != null}">
             <li><a href="/board/write">글 작성</a></li>
         </c:if>
-        <li><a href="#">달력</a></li>
+        <li><a href="#">시계&달력</a></li>
     </ul>
 </div>
 

@@ -40,7 +40,7 @@ function getFileInfo(fullName){
 	return {fileName:fileName, imgsrc:imgsrc, getLink:getLink, fullName:fullName};
 }
 
-$(document).ready(function()){
+$(document).ready(function()) {
 		//파일 업로드 영역에서 기본 효과를 제한
 		$(".fileDrop").on("dragenter dragover", function(e){
 			e.preventDefault(); // 기본효과 제한
